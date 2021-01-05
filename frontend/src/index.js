@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+import DBContext from "./DBContext";
+
+
 ReactDOM.render(
-  <React.StrictMode>
+
+  <DBContext>
     <App />
-  </React.StrictMode>,
+  </DBContext>,
   document.getElementById('root')
 );
