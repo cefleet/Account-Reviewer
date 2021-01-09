@@ -14,7 +14,7 @@ const maps = {
     }
 };
 
-const account = [
+export const account = [
     {
         title:"User Account",
         fields:[
@@ -25,7 +25,7 @@ const account = [
     }
 ]
 
-const contact_notes = [
+export const contact_notes = [
     {
         title:"Contact Details",
         fields:[
@@ -47,4 +47,4 @@ const contact_notes = [
             {title:"Details", name:"details"}
         ]
     }
-]
+];
