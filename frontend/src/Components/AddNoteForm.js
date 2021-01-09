@@ -6,7 +6,7 @@ import {contact_notes} from "../fields";
 const AddNoteForm = ({accountId, noteAdded}) => {
     
     const {setDb, db} = useContext(DBContext);
-    const {DataForm} = useDataForm({}, contact_notes)
+    const {DataForm} = useDataForm(contact_notes)
 
     const createNote = (formData) =>{
         console.log(formData);

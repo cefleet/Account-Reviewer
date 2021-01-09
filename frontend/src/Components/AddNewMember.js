@@ -5,7 +5,7 @@ import {DBContext} from "../DBContext";
 
 const AddNewMember = ({closeForm}) => {
 
-    const {DataForm} = useDataForm({},account)
+    const {DataForm} = useDataForm(account)
     const {setDb, db}  = useContext(DBContext);
 
     const addNewMember = (formData) => {
@@ -16,7 +16,7 @@ const AddNewMember = ({closeForm}) => {
         closeForm();
     }
 
-    return(<DataForm submitText="Add Member" onSubmit={addNewMember} />)
+    return(<main><DataForm submitText="Add Member" onSubmit={addNewMember} /></main>)
 };
 
 export default AddNewMember;

@@ -10,7 +10,8 @@ const maps = {
     note_importance:{
         general:"General",
         remider:"Reminder",
-        urgent:"Urgent"
+        urgent:"Urgent",
+        needs_action:'Needs Action'
     }
 };
 
@@ -37,14 +38,14 @@ export const contact_notes = [
         title:"Contact Notes",
         fields:[
             {title:"Importance", name:"importance", type:"Dropdown", options:maps.note_importance},
-            {title:"Note", name:"note"}
+            {type:"Textarea", title:"Note", name:"note"}
         ]
     },
     {
         title:"Follow Up",
         fields:[
             {title:"Follow Up Date", name:"follow_up_date", type:"DateType"},
-            {title:"Details", name:"details"}
+            {type:"Textarea", title:"Details", name:"details"}
         ]
     }
 ];

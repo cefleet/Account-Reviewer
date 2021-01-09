@@ -10,14 +10,14 @@ const ViewAccount = ({account}) =>{
     console.log(account);
     console.log(notes)
     return (
-        <div>
+        <main>
             <h2>{account.account_number} - {account.first_name} {account.last_name} </h2>
             {!addNote && <button onClick={()=>setAddNote(true)}>Add Note</button>}
             {addNote && <AddNoteForm accountId={account.account_number} noteAdded={()=>setAddNote(false)} />}
             {
                 notes.map((note,idx)=><NoteDetails note={note} key={idx}/>)
             }
-        </div>
+        </main>
     )
 };
 export default ViewAccount;

@@ -14,6 +14,7 @@ const  App = () => {
 
   const memberNumberChange = ({target:{value}}) => {
     setSearchValue(value);
+    if(!value || value ==="") return setSearchResults(null);
     setSearchResults(db.accounts.filter(a=>a.account_number.startsWith(value)));
   }
 
@@ -23,20 +24,43 @@ const  App = () => {
     setViewing(account)
   }
 
-  if(addingNew) return <AddNewMemeber closeForm = {()=>setAddingNew(false)} />
+  const main = () =>{
+    setSearchResults(null);
+    setSearchValue("");
+    setViewing(null);
+    setAddingNew(false);
+  }
 
-  if(viewing) return <ViewAccount account={viewing} />
+  const MainContent = () =>{
+    if(addingNew) return <AddNewMemeber closeForm = {()=>setAddingNew(false)} />
+
+    if(viewing) return <ViewAccount account={viewing} />
+
+    return (
+        <main>
+          <Input title="Find By Member #" onChange={memberNumberChange} value={searchValue} />
+          {searchResults && searchResults.length === 0 && <div>No Members Found</div>}
+          {searchResults &&
+            searchResults.map((account, idx)=><AccountLine account={account} key={idx} viewAccount= {accountChosen} />)
+          }
+        </main>
+      );
+  }
 
   return (
-    <div className="App">
-      <button onClick={()=>setAddingNew(true)}>Add New Memeber</button>
-      <Input title="Find By Member #" onChange={memberNumberChange} value={searchValue} />
-      {searchResults && searchResults.length === 0 && <div>No Members Found</div>}
-      {searchResults &&
-        searchResults.map((account, idx)=><AccountLine account={account} key={idx} viewAccount= {accountChosen} />)
-      }
-    </div>
-  );
+      <div>
+          <header>
+                <h1>Account Reviewer</h1>
+                <nav>
+                  <button onClick={()=>main()}>Search Memebers</button>
+                  <button onClick={()=>setAddingNew(true)}>Add New Memeber</button>
+                </nav>
+          </header>
+          <MainContent />          
+      </div>
+  )
+  
+  
 }
 
 export default App;
