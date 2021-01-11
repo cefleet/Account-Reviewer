@@ -1,0 +1,68 @@
+label {
+    font-weight: bold;
+}
+fieldset.close {
+    padding:0;
+}
+fieldset.closed details {
+    display: none;
+    padding: 0;
+}
+
+.accountLine {
+    padding:10px;
+    border:1px #0096bfab solid; 
+    font-size:1.2em;
+    cursor:pointer;
+
+}
+.accountLine:nth-of-type(2n) {
+    background: #0096bfab;
+}
+
+details {
+    background-color:#fff;
+}
+
+.labeled-list summary {
+    text-decoration: none;
+    font-size:1.2em;
+}
+
+.note-section {
+    border:1px #0096bfab solid; 
+    border-radius:  6px;
+    margin:10px 0;
+}
+.note-section h4 {
+    margin:0;
+    padding:10px;
+    background: #0096bfab;
+}
+.note-section-fields {
+    padding:10px;
+}
+
+.note-section-fields p {
+    padding:0;
+    margin:0;
+}
+
+.note-section-field {
+    padding:10px 0;
+}
+
+details.remider {
+    border:3px solid orange;
+}
+
+details.urgent {
+    border:3px solid red;
+}
+
+details.general {
+    border:3px solid green;
+}
+details.needs_action {
+    border:3px solid blue;
+}

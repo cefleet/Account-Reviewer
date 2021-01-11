@@ -1,4 +1,4 @@
-const maps = {
+export const maps = {
     contact_type:{
         drop_in:"Drop In",
         telephone_call:"Telephone Call",

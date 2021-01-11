@@ -1,8 +1,6 @@
-import {contact_notes} from "../fields";
+import {contact_notes, maps} from "../fields";
 
-
-
-const NoteDetails = ({note})=>{
+const NoteDetails = ({note, deleteNote})=>{
 
     const NoteSection = ({section}) =>(
         <section className="note-section">
@@ -35,10 +33,11 @@ const NoteDetails = ({note})=>{
         )
     }
 
-    console.log(note)
+    const overView = `${new Date(note.contact_date).toLocaleDateString()} - ${maps.contact_type[note.contact_type]}`
     return (
         <details className={`labeled-list ${note.importance}`}>
-            <summary><NoteSection key={0} section={contact_notes[0]} /></summary>
+            <summary>{overView}</summary>
+            <button onClick={()=>deleteNote(note.id)} class="delete">Delete Note</button>
             {contact_notes.filter((s,idx)=>idx !== 0).map((section, idx)=><NoteSection key={idx} section={section} />)}
         </details>
     );

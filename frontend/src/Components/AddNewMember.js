@@ -9,7 +9,7 @@ const AddNewMember = ({closeForm}) => {
     const {setDb, db}  = useContext(DBContext);
 
     const addNewMember = (formData) => {
-        console.log(formData);
+        if(!formData.account_number) return;
         const newData = {...db, accounts:[...db.accounts, formData]};
         setDb(newData);
         localStorage.setItem('data', JSON.stringify(newData))

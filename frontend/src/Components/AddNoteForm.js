@@ -1,3 +1,4 @@
+import {v4 as uuid} from "uuid";
 import {useContext} from "react";
 import {useDataForm} from "react-data-forms";
 import {DBContext} from "../DBContext";
@@ -11,7 +12,7 @@ const AddNoteForm = ({accountId, noteAdded}) => {
     const createNote = (formData) =>{
         console.log(formData);
         
-        const newData = {...db, contact_notes:[...db.contact_notes, {...formData, account:accountId}]};
+        const newData = {...db, contact_notes:[...db.contact_notes, {...formData, account:accountId, id:uuid()}]};
         localStorage.setItem('data', JSON.stringify(newData))
         setDb(newData);
 
